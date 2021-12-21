@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+
+  pixum-docker:
+    container_name: pixum-docker
+    image: pixum-docker:1.0.0
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $HOME/.Xauthority:/home/pixumuser/.Xauthority
+    environment:
+      DISPLAY: unix${DISPLAY}
+    devices:
+      - /dev/dri:/dev/dri
+    command: /opt/Pixum/Univers\ photo\ Pixum/Univers\ photo\ Pixum
