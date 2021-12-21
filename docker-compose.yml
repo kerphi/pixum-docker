@@ -12,4 +12,7 @@ services:
       DISPLAY: unix${DISPLAY}
     devices:
       - /dev/dri:/dev/dri
-    command: /opt/Pixum/Univers\ photo\ Pixum/Univers\ photo\ Pixum
+    tty: true         # to have nice debug(...) outputs
+    stdin_open: true  # to be able to use CTRL+C to stop the debug
+    command: /home/pixumuser/Pixum/Univers\ photo\ Pixum
+    #command: /home/pixumuser/Pixum/Univers\ photo\ Pixum/Univers\ photo\ Pixum

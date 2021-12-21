@@ -29,9 +29,6 @@ RUN apt install -y \
           libxcb-xkb1 \
           libxkbcommon-x11-0
 
-COPY ./Pixum/ /opt/Pixum/
-
-
 ARG UID
 ARG GID
 RUN mkdir -p /home/pixumuser && \
@@ -40,6 +37,8 @@ RUN mkdir -p /home/pixumuser && \
     echo "pixumuser ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/pixumuser && \
     chmod 0440 /etc/sudoers.d/pixumuser && \
     chown ${UID}:${GID} -R /home/pixumuser
+
+COPY ./Pixum/ /home/pixumuser/Pixum/
 
 USER pixumuser
 ENV HOME /home/pixumuser
