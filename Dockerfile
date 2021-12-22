@@ -29,6 +29,11 @@ RUN apt install -y \
           libxcb-xkb1 \
           libxkbcommon-x11-0
 
+# font for pixum
+RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
+RUN apt-get install -y --no-install-recommends fontconfig ttf-mscorefonts-installer
+RUN fc-cache -f -v
+
 ARG UID
 ARG GID
 RUN mkdir -p /home/pixumuser && \
@@ -38,7 +43,7 @@ RUN mkdir -p /home/pixumuser && \
     chmod 0440 /etc/sudoers.d/pixumuser && \
     chown ${UID}:${GID} -R /home/pixumuser
 
-COPY ./Pixum/ /home/pixumuser/Pixum/
+COPY ./Pixum/ /opt/Pixum/
 
 USER pixumuser
 ENV HOME /home/pixumuser
