@@ -66,7 +66,6 @@ Create this file as root: `/usr/share/applications/pixum.desktop`
 Name=Pixum
 TryExec=/home/frederique/pixum-docker/shortcut.sh
 Exec=/home/frederique/pixum-docker/shortcut.sh
-#Exec=vim %F
 Terminal=true
 Type=Application
 Icon=/home/frederique/pixum-docker/pixum-logo.png
