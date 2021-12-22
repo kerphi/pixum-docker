@@ -55,4 +55,20 @@ Then run pixum this way :
 docker-compose up
 ```
 
+## How to
 
+### Install desktop ubunto shortcut
+
+Create this file as root: `/usr/share/applications/pixum.desktop`
+
+```
+[Desktop Entry]
+Name=Pixum
+TryExec=/home/frederique/pixum-docker/shortcut.sh
+Exec=/home/frederique/pixum-docker/shortcut.sh
+#Exec=vim %F
+Terminal=true
+Type=Application
+Icon=/home/frederique/pixum-docker/pixum-logo.png
+StartupNotify=false
+```
