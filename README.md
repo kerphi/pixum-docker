@@ -11,7 +11,7 @@ Having docker and docker-compose installed on your linux box.
 1) Build the image a first time this way:
 ```bash
 cd pixum-docker/
-docker build . -t pixum-docker:1.0.0 \
+docker build . -t pixum-docker:2.0.0 \
     --build-arg UID=$(id -u) \
     --build-arg GID=$(id -g)
 ```
@@ -43,7 +43,7 @@ docker cp pixum-installer:/tmp/Pixum/ ./
 7) Build again the image:
 ```bash
 cd pixum-docker/
-docker build . -t pixum-docker:1.0.0 \
+docker build . -t pixum-docker:2.0.0 \
     --build-arg UID=$(id -u) \
     --build-arg GID=$(id -g)
 ```

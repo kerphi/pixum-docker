@@ -1,4 +1,4 @@
-FROM ubuntu:21.10
+FROM ubuntu:22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -27,7 +27,10 @@ RUN apt install -y \
           libxcb-render-util0 \
           libxcb-shape0 \
           libxcb-xkb1 \
-          libxkbcommon-x11-0
+          libxkbcommon-x11-0 \
+          libxtst6 \
+          libgstreamer-gl1.0-0 \
+          gstreamer1.0-libav
 
 # font for pixum
 RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
