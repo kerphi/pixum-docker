@@ -2,6 +2,13 @@
 
 Dockerization of https://www.pixum.fr/livre-photo/danke?os=linux
 
+
+**ATTENTION : cette procédure fonctionnait avec la version 7.1.5 mais ne fonctionne plusa vec la version 7.2.5,
+  ce qui est ci-dessous correspond à une tentative infructueuse de mise à jour en version 7.2.5**
+
+
+
+
 ## Prerequisites
 
 Having docker and docker-compose installed on your linux box.
@@ -11,16 +18,18 @@ Having docker and docker-compose installed on your linux box.
 1) Build the image a first time this way:
 ```bash
 cd pixum-docker/
-docker build . -t pixum-docker:2.0.0 \
+docker build . -t pixum-docker:7.2.5 \
     --build-arg UID=$(id -u) \
     --build-arg GID=$(id -g)
 ```
 
 2) Download setup_Univers_photo_Pixum.tgz on this page: https://www.pixum.fr/livre-photo/danke?os=linux
-
+   (7.2.5 above docker image tag should be changed if the pixum's version is newer,
+   so go to step 1 if the version is new)
+ 
 3) Create a container in a terminal:
 ```bash
-docker run --rm -it --name pixum-installer pixum-docker:1.0.0 bash
+docker run --rm -it --name pixum-installer pixum-docker:7.2.5 bash
 ```
 
 4) Copy the setup in the above container:
@@ -43,14 +52,14 @@ docker cp pixum-installer:/tmp/Pixum/ ./
 7) Build again the image:
 ```bash
 cd pixum-docker/
-docker build . -t pixum-docker:2.0.0 \
+docker build . -t pixum-docker:7.2.5 \
     --build-arg UID=$(id -u) \
     --build-arg GID=$(id -g)
 ```
 
 ## Run
 
-Then run pixum this way :
+Then run pixum this way (edit docker-compose.yml if 7.2.5 version is changed above):
 ```bash
 docker-compose up
 ```

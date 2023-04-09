@@ -4,12 +4,13 @@ services:
 
   pixum-docker:
     container_name: pixum-docker
-    image: pixum-docker:2.0.0
+    image: pixum-docker:7.2.5
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - $HOME/.Xauthority:/home/pixumuser/.Xauthority
       - ~:/home/pixumuser/
     environment:
+      QT_DEBUG_PLUGINS: 1
       DISPLAY: unix${DISPLAY}
     devices:
       - /dev/dri:/dev/dri

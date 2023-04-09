@@ -27,6 +27,7 @@ RUN apt install -y \
           libxcb-render-util0 \
           libxcb-shape0 \
           libxcb-xkb1 \
+          libxcb-randr0 \
           libxkbcommon-x11-0 \
           libxtst6 \
           libgstreamer-gl1.0-0 \
